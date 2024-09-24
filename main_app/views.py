@@ -1,23 +1,25 @@
-from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
-from django.contrib.auth.views import LoginView
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Word
-from .forms import WordForm
+from django.shortcuts import render
 
+# Add the following import
+from django.http import HttpResponse
 
-# Create your views here.
-class Home(LoginView):
-  template_name = 'home.html'
+class Word:  
+  def __init__(self, word, origin, usage_in_sentence):
+    self.word = word
+    self.origin = origin
+    self.usage_in_sentence = usage_in_sentence
+
+words = [
+  Word('First', 'Greek', 'It\'s first word'),
+  Word('Second', 'Greek', 'Looks like a second word.'),
+]
+
+# Define the home view
+def home(request):
+  return HttpResponse('<h1>Hello Word!</h1>')
 
 def about(request):
   return render(request, 'about.html')
 
-@login_required
-def word_list(request):
-  words = Word.objects.filter(created_by=request.user)
-  return render(request, 'main_app/word_list.html', {'words': words})
+def word_index(request):
+  return render(request, 'words/index.html', { 'words': words })

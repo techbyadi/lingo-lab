@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/words/word-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Word List 📚🔍</h1>
+</section>
+
+<section class="card-container">
+  {% for word in words %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+        </div>
+        <h2 class="card-title">{{ word.word }}</h2>
+          <p> {{ word.origin }}</p>
+        <p><small>{{ word.usage_in_sentence }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
