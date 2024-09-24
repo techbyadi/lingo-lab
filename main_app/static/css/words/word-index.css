@@ -1,7 +1,7 @@
 .card-container {
   padding: 0 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -9,6 +9,7 @@
   width: 275px;
   margin: 10px;
   border: var(--borders);
+  border-radius: 8px;
   box-shadow: var(--card-box-shadow);
 }
 
