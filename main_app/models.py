@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Word(models.Model):
     word = models.CharField(max_length=20)
@@ -7,3 +8,6 @@ class Word(models.Model):
 
     def __str__(self):
         return self.word
+    
+    def get_absolute_url(self):
+        return reverse('word-detail', kwargs={'word_id': self.id})

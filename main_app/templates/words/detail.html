@@ -18,5 +18,9 @@
     <p>{{ word.usage_in_sentence }}</p>
   </div>
 </section>
+<div class="cat-actions">
+  <a href="{% url 'word-update' word.id %}" class="btn warn">Edit</a>
+  <a href="{% url 'word-delete' word.id %}" class="btn danger">Delete</a>
+</div>
 
 {% endblock %}

@@ -33,3 +33,12 @@ class WordCreate(CreateView):
   model = Word
   fields = ['word', 'origin', 'usage_in_sentence']
   success_url = '/words/'
+
+class WordUpdate(UpdateView):
+  model = Word
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = ['word', 'origin', 'usage_in_sentence']
+
+class WordDelete(DeleteView):
+  model = Word
+  success_url = '/words/'
