@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Word
 
 class Word_old:  
@@ -27,3 +28,8 @@ def word_index(request):
 def word_detail(request, word_id):
   word = Word.objects.get(id=word_id)
   return render(request, 'words/detail.html', {'word': word})
+
+class WordCreate(CreateView):
+  model = Word
+  fields = ['word', 'origin', 'usage_in_sentence']
+  success_url = '/words/'

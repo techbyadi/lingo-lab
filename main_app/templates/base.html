@@ -30,6 +30,7 @@
       <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'word-index' %}">All Words</a></li>
+        <li><a href="{% url 'word-create' %}">Add a Word</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         {% else %}
         <li><a href="{% url 'about' %}">About</a></li>
