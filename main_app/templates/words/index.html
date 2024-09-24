@@ -18,13 +18,13 @@
 <section class="card-container">
   {% for word in words %}
     <div class="card">
+    <a href="/words/{{ word.id }}">
       <div class="card-content">
-        <div class="card-img-container">
-        </div>
         <h2 class="card-title">{{ word.word }}</h2>
           <p> {{ word.origin }}</p>
         <p><small>{{ word.usage_in_sentence }}</small></p>
       </div>
+    </a>
     </div>
   {% endfor %}
 </section>

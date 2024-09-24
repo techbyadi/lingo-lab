@@ -23,3 +23,7 @@ def about(request):
 def word_index(request):
   words = Word.objects.all()
   return render(request, 'words/index.html', {'words': words})
+
+def word_detail(request, word_id):
+  word = Word.objects.get(id=word_id)
+  return render(request, 'words/detail.html', {'word': word})
