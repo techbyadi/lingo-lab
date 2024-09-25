@@ -8,17 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 
-class Word_old:  
-  def __init__(self, word, origin, usage_in_sentence):
-    self.word = word
-    self.origin = origin
-    self.usage_in_sentence = usage_in_sentence
-
-words_old = [
-  Word('First', 'Greek', 'It\'s first word'),
-  Word('Second', 'Greek', 'Looks like a second word.'),
-]
-
 class Home(LoginView):
   template_name = 'home.html'
 
@@ -27,7 +16,7 @@ def about(request):
 
 @login_required
 def word_index(request):
-  words = Word.objects.filter(user=request.user)
+  words = Word.objects.filter(user=request.user).order_by('-date_added') 
   return render(request, 'words/index.html', {'words': words})
 
 @login_required
@@ -37,7 +26,7 @@ def word_detail(request, word_id):
 
 class WordCreate(LoginRequiredMixin, CreateView):
   model = Word
-  fields = ['word', 'origin', 'usage_in_sentence']
+  fields = ['word', 'meaning', 'synonyms', 'usage_in_sentence']  
   success_url = '/words/'
 
   def form_valid(self, form):
@@ -46,8 +35,8 @@ class WordCreate(LoginRequiredMixin, CreateView):
 
 class WordUpdate(LoginRequiredMixin, UpdateView):
   model = Word
-  # Let's disallow the renaming of a cat by excluding the name field!
-  fields = ['word', 'origin', 'usage_in_sentence']
+  fields = ['word', 'meaning', 'synonyms', 'usage_in_sentence']
+  success_url = '/words/'
 
 class WordDelete(LoginRequiredMixin, DeleteView):
   model = Word

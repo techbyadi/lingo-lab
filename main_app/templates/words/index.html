@@ -21,8 +21,9 @@
     <a href="/words/{{ word.id }}">
       <div class="card-content">
         <h2 class="card-title">{{ word.word }}</h2>
-          <p> {{ word.origin }}</p>
-        <p><small>{{ word.usage_in_sentence }}</small></p>
+        <p><small><b>Meaning:</b> {{ word.meaning }}</small></p>
+        <p><small><b>Synonyms:</b> {{ word.synonyms }}</small></p>
+        <!-- <p><small>{{ word.usage_in_sentence }}</small></p>-->
       </div>
     </a>
     </div>
