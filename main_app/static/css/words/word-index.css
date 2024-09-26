@@ -11,6 +11,7 @@
   border: var(--borders);
   border-radius: 8px;
   box-shadow: var(--card-box-shadow);
+  background-color: #FCEADE;
 }
 
 .card-content {
