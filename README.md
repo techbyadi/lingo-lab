@@ -1,7 +1,7 @@
 # **LingoLab**
 **By: [Aditya Sharma](https://www.linkedin.com/in/aditya-sharma-3a0b6a190/)**
 
-![LingoLab-home](./lingolab/assets/WordList.png)
+![LingoLab-allwords](./lingolab/assets/allwords.png)
 
 ## Description
 
@@ -19,8 +19,6 @@ With LingoLab, users can build and refine their vocabulary in an organized and e
 ## Getting Started
 
 Click here to go to **[LingoLab](https://lingo-lab-fe3caee484ec.herokuapp.com/)** app
-
- Project Planning (User Stories): **[Trello Board](https://trello.com/b/J8CAfquk/househop-08-12-08-18)**
 
 
 ## Technology Used 
